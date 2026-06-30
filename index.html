@@ -1,0 +1,436 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CollegeResto - Restaurant Landing Page</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, sans-serif;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    background:#f8f9fa;
+    color:#333;
+}
+
+nav{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    background:#fff;
+    padding:15px 8%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    box-shadow:0 2px 15px rgba(0,0,0,0.1);
+    z-index:1000;
+}
+
+.logo{
+    font-size:30px;
+    font-weight:bold;
+    color:#ff5722;
+}
+
+nav ul{
+    list-style:none;
+    display:flex;
+    gap:25px;
+}
+
+nav ul li a{
+    text-decoration:none;
+    color:#333;
+    font-weight:bold;
+    transition:.3s;
+}
+
+nav ul li a:hover{
+    color:#ff5722;
+}
+
+.hero{
+    height:100vh;
+    background:
+    linear-gradient(rgba(0,0,0,.55),rgba(0,0,0,.55)),
+    url('https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=1600');
+    background-size:cover;
+    background-position:center;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    color:#fff;
+    padding:20px;
+}
+
+.hero-content h1{
+    font-size:60px;
+    margin-bottom:20px;
+}
+
+.hero-content p{
+    font-size:22px;
+    margin-bottom:25px;
+}
+
+.btn{
+    display:inline-block;
+    padding:14px 30px;
+    border-radius:30px;
+    text-decoration:none;
+    margin:5px;
+    transition:.3s;
+}
+
+.primary{
+    background:#ff5722;
+    color:#fff;
+}
+
+.secondary{
+    background:#fff;
+    color:#333;
+}
+
+.primary:hover{
+    background:#e64a19;
+}
+
+.secondary:hover{
+    background:#f1f1f1;
+}
+
+section{
+    padding:90px 8%;
+}
+
+.section-title{
+    text-align:center;
+    margin-bottom:50px;
+}
+
+.section-title h2{
+    font-size:40px;
+    color:#ff5722;
+}
+
+.food-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+    gap:25px;
+}
+
+.card{
+    background:#fff;
+    border-radius:18px;
+    overflow:hidden;
+    box-shadow:0 5px 15px rgba(0,0,0,.1);
+    transition:.3s;
+}
+
+.card:hover{
+    transform:translateY(-8px);
+}
+
+.card img{
+    width:100%;
+    height:220px;
+    object-fit:cover;
+}
+
+.card h3{
+    padding:15px 15px 5px;
+}
+
+.price{
+    color:#ff5722;
+    font-weight:bold;
+    font-size:18px;
+    padding:0 15px 15px;
+}
+
+.about,
+.location{
+    max-width:900px;
+    margin:auto;
+    text-align:center;
+    line-height:1.9;
+    font-size:18px;
+}
+
+.contact-form{
+    max-width:700px;
+    margin:auto;
+}
+
+.contact-form input,
+.contact-form textarea{
+    width:100%;
+    padding:15px;
+    margin-bottom:15px;
+    border:1px solid #ccc;
+    border-radius:8px;
+}
+
+.contact-form button{
+    background:#ff5722;
+    color:white;
+    border:none;
+    padding:15px 25px;
+    border-radius:8px;
+    cursor:pointer;
+}
+
+.contact-form button:hover{
+    background:#e64a19;
+}
+
+footer{
+    background:#222;
+    color:white;
+    text-align:center;
+    padding:30px;
+}
+
+#topBtn{
+    position:fixed;
+    bottom:20px;
+    right:20px;
+    width:55px;
+    height:55px;
+    border:none;
+    border-radius:50%;
+    background:#ff5722;
+    color:white;
+    font-size:20px;
+    cursor:pointer;
+    display:none;
+}
+
+@media(max-width:768px){
+
+    nav{
+        flex-direction:column;
+        gap:10px;
+    }
+
+    nav ul{
+        flex-wrap:wrap;
+        justify-content:center;
+    }
+
+    .hero-content h1{
+        font-size:38px;
+    }
+
+    .hero-content p{
+        font-size:18px;
+    }
+
+    .section-title h2{
+        font-size:32px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<nav>
+    <div class="logo">🍽 CollegeResto</div>
+
+    <ul>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#menu">Menu</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#location">Location</a></li>
+        <li><a href="#contact">Contact</a></li>
+    </ul>
+</nav>
+
+<section class="hero" id="home">
+    <div class="hero-content">
+        <h1>Experience Delicious Food Like Never Before</h1>
+        <p>Fresh ingredients, authentic recipes and unforgettable flavors.</p>
+
+        <a href="#menu" class="btn primary">Check Out Menu</a>
+        <a href="#contact" class="btn secondary">Order Now</a>
+    </div>
+</section>
+
+<section id="menu">
+
+    <div class="section-title">
+        <h2>Popular Dishes</h2>
+    </div>
+
+    <div class="food-grid">
+
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1513104890138-7c749659a591?w=800" alt="">
+            <h3>Cheese Pizza</h3>
+            <div class="price">₹299</div>
+        </div>
+
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=800" alt="">
+            <h3>Classic Burger</h3>
+            <div class="price">₹199</div>
+        </div>
+
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1621996346565-e3dbc646d9a9?w=800" alt="">
+            <h3>Italian Pasta</h3>
+            <div class="price">₹249</div>
+        </div>
+
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1546793665-c74683f339c1?w=800" alt="">
+            <h3>Fresh Salad</h3>
+            <div class="price">₹149</div>
+        </div>
+
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1544025162-d76694265947?w=800" alt="">
+            <h3>Grilled Steak</h3>
+            <div class="price">₹499</div>
+        </div>
+
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1551024601-bec78aea704b?w=800" alt="">
+            <h3>Chocolate Dessert</h3>
+            <div class="price">₹179</div>
+        </div>
+
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1631515243349-e0cb75fb8d3a?w=800" alt="">
+            <h3>Chicken Biryani</h3>
+            <div class="price">₹329</div>
+        </div>
+
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1612929633738-8fe44f7ec841?w=800" alt="">
+            <h3>Veg Noodles</h3>
+            <div class="price">₹219</div>
+        </div>
+
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1563805042-7684c019e1cb?w=800" alt="">
+            <h3>Ice Cream</h3>
+            <div class="price">₹159</div>
+        </div>
+
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=800" alt="">
+            <h3>Chocolate Cake</h3>
+            <div class="price">₹199</div>
+        </div>
+
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1604908176997-125f25cc6f3d?w=800" alt="">
+            <h3>Crispy Fried Chicken</h3>
+            <div class="price">₹289</div>
+        </div>
+
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1528735602780-2552fd46c7af?w=800" alt="">
+            <h3>Club Sandwich</h3>
+            <div class="price">₹169</div>
+        </div>
+
+    </div>
+
+</section>
+
+<section id="about">
+    <div class="section-title">
+        <h2>About Us</h2>
+    </div>
+
+    <div class="about">
+        CollegeResto is a modern restaurant dedicated to delivering exceptional dining experiences through delicious food, fresh ingredients, and outstanding customer service.
+    </div>
+</section>
+
+<section id="location">
+    <div class="section-title">
+        <h2>Our Location</h2>
+    </div>
+
+    <div class="location">
+        CollegeResto, Main Street, City Center, India
+    </div>
+</section>
+
+<section id="contact">
+
+    <div class="section-title">
+        <h2>Contact Us</h2>
+    </div>
+
+    <form class="contact-form" id="contactForm">
+
+        <input type="text" placeholder="Your Name" required>
+
+        <input type="email" placeholder="Your Email" required>
+
+        <textarea rows="5" placeholder="Your Message" required></textarea>
+
+        <button type="submit">Send Message</button>
+
+    </form>
+
+</section>
+
+<footer>
+    © <span id="year"></span> CollegeResto. All Rights Reserved.
+</footer>
+
+<button id="topBtn">↑</button>
+
+<script>
+document.getElementById("year").textContent =
+new Date().getFullYear();
+
+const topBtn =
+document.getElementById("topBtn");
+
+window.addEventListener("scroll", () => {
+    if(window.scrollY > 300){
+        topBtn.style.display = "block";
+    }else{
+        topBtn.style.display = "none";
+    }
+});
+
+topBtn.addEventListener("click", () => {
+    window.scrollTo({
+        top:0,
+        behavior:"smooth"
+    });
+});
+
+document
+.getElementById("contactForm")
+.addEventListener("submit", function(e){
+    e.preventDefault();
+    alert("Thank you! Your message has been sent successfully.");
+    this.reset();
+});
+</script>
+
+</body>
+</html>
+```
